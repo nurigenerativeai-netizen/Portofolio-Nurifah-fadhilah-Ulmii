@@ -7,8 +7,8 @@ const projectsData = [
     id: 1,
     title: "Branding Visual",
     description: "Menciptakan identitas visual merek (logo, palet warna, moodboard) bertema natural menggunakan AI generatif.",
-    tools: ["Midjourney", "GPT-4", "Visual Branding"],
-    coverImage: "/images/projects/logo.png", // Diubah menjadi logo.png
+    tools: ["Gemini AI", "Brainstorming", "Marketing"], // Diperbarui
+    coverImage: "/images/projects/logo.png",
     galleryImages: [
       "/images/projects/logo.png",
       "/images/projects/palette-warna.png",
