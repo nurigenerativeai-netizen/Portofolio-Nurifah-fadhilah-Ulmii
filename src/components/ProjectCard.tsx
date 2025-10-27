@@ -1,20 +1,35 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tag } from "@/components/Tag";
 import { ArrowUpRight } from "lucide-react";
+import * as React from "react";
 
 interface ProjectCardProps {
   title: string;
   description: string;
   tools: string[];
   coverImage: string;
-  onViewCaseStudy: () => void;
+  onViewCaseStudy?: () => void; // Dibuat opsional
+  externalLink?: string; // Properti baru
 }
 
-export function ProjectCard({ title, description, tools, coverImage, onViewCaseStudy }: ProjectCardProps) {
+export function ProjectCard({ title, description, tools, coverImage, onViewCaseStudy, externalLink }: ProjectCardProps) {
+  
+  const handleClick = () => {
+    if (externalLink) {
+      window.open(externalLink, '_blank');
+    } else if (onViewCaseStudy) {
+      onViewCaseStudy();
+    }
+  };
+
+  // Tentukan teks aksi untuk ditampilkan di kartu
+  const actionLabel = externalLink ? "Lihat Video" : "Lihat Studi Kasus";
+  const showActionLabel = externalLink || onViewCaseStudy;
+
   return (
     <Card 
       className="bg-white/70 border-dusty-rose/50 hover:shadow-xl transition-all duration-300 group relative overflow-hidden flex flex-col cursor-pointer"
-      onClick={onViewCaseStudy} // Seluruh kartu sekarang dapat diklik
+      onClick={handleClick}
     >
       {/* Cover Image Section */}
       <div className="relative h-40 overflow-hidden">
@@ -38,8 +53,13 @@ export function ProjectCard({ title, description, tools, coverImage, onViewCaseS
             <Tag key={index}>{tool}</Tag>
           ))}
         </div>
-        {/* Menambahkan indikator visual bahwa kartu dapat diklik */}
-        <ArrowUpRight className="w-6 h-6 text-dusty-rose group-hover:text-charcoal-plum transition-colors" />
+        {/* Menambahkan indikator visual yang lebih jelas */}
+        {showActionLabel && (
+          <div className="flex items-center text-dusty-rose group-hover:text-charcoal-plum transition-colors text-sm font-medium whitespace-nowrap">
+            {actionLabel}
+            <ArrowUpRight className="w-6 h-6 ml-1" />
+          </div>
+        )}
       </CardContent>
     </Card>
   );
