@@ -20,8 +20,8 @@ export function AboutSection() {
       <div className="flex flex-col md:flex-row items-start gap-8">
         <div className="flex-shrink-0 w-full md:w-1/3 flex flex-col items-center">
           <Avatar className="w-32 h-32 mb-4 border-4 border-dusty-rose shadow-lg">
-            {/* Ganti '/placeholder.svg' dengan path foto Anda */}
-            <AvatarImage src="/placeholder.svg" alt="Nurifah Fadhilah Ulmi" />
+            {/* Menggunakan foto yang diunggah */}
+            <AvatarImage src="/nurifah_fadhilah_ulmi_profile.jpeg" alt="Nurifah Fadhilah Ulmi" />
             <AvatarFallback className="bg-olive-sage text-cream-mist text-2xl">NF</AvatarFallback>
           </Avatar>
           <Button
