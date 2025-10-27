@@ -7,7 +7,7 @@ const projectsData = [
     id: 1,
     title: "Branding Visual",
     description: "Menciptakan identitas visual merek (logo, palet warna, moodboard) bertema natural menggunakan AI generatif.",
-    tools: ["Gemini AI", "Brainstorming", "Marketing"], // Diperbarui
+    tools: ["Gemini AI", "Brainstorming", "Marketing"],
     coverImage: "/images/projects/logo.png",
     galleryImages: [
       "/images/projects/logo.png",
@@ -25,13 +25,19 @@ const projectsData = [
   },
   {
     id: 2,
-    title: "Serial Webtoon",
+    title: "Putri Yang Hilang (Webtoon)",
     description: "Produksi serial webtoon mingguan yang cepat dan efisien menggunakan kombinasi alat AI untuk alur cerita, visual, dan penyuntingan.",
     tools: ["Canva AI", "Gemini AI", "Chat GPT"],
-    coverImage: "https://images.unsplash.com/photo-1542435503-921c5831f04e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    galleryImages: [],
+    coverImage: "/images/webtoon/1(2).png", // Cover Image
+    galleryImages: [
+      "/images/webtoon/1(2).png",
+      "/images/webtoon/Desain tanpa judul.png",
+      "/images/webtoon/3(2).png",
+      "/images/webtoon/4.png",
+      "/images/webtoon/5.png",
+    ],
     caseStudy: {
-      title: "Serial Webtoon",
+      title: "Serial Webtoon: Putri Yang Hilang",
       objective: "Membuat konten serial yang konsisten dan menarik dengan biaya produksi minimal.",
       process: "Menggunakan Gemini AI dan Chat GPT untuk mengelola alur cerita dan dialog. Canva AI digunakan untuk rendering panel dan penyesuaian visual. Proses pasca-produksi minimal untuk penambahan teks.",
       outcome: "Berhasil meluncurkan 12 episode dalam 3 bulan, meningkatkan engagement audiens sebesar 40%.",

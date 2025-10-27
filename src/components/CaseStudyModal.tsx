@@ -21,6 +21,9 @@ interface CaseStudyModalProps {
 
 export function CaseStudyModal({ isOpen, onClose, project }: CaseStudyModalProps) {
   const { title, tools, galleryImages, caseStudy } = project;
+  
+  // Logika untuk mendeteksi apakah ini adalah Webtoon
+  const isWebtoon = title.toLowerCase().includes("webtoon");
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -38,23 +41,38 @@ export function CaseStudyModal({ isOpen, onClose, project }: CaseStudyModalProps
           {/* Gallery/Carousel */}
           {galleryImages && galleryImages.length > 0 && (
             <div className="bg-dusty-rose/10 p-4 rounded-lg">
-              <Carousel className="w-full">
-                <CarouselContent>
+              {isWebtoon ? (
+                // Tampilan Vertikal untuk Webtoon
+                <div className="space-y-4">
                   {galleryImages.map((image, index) => (
-                    <CarouselItem key={index}>
-                      <div className="p-1">
-                        <img
-                          src={image}
-                          alt={`Gallery image ${index + 1}`}
-                          className="w-full h-auto max-h-[400px] object-contain rounded-md"
-                        />
-                      </div>
-                    </CarouselItem>
+                    <img
+                      key={index}
+                      src={image}
+                      alt={`Webtoon panel ${index + 1}`}
+                      className="w-full h-auto object-contain rounded-md shadow-md"
+                    />
                   ))}
-                </CarouselContent>
-                <CarouselPrevious className="left-2" />
-                <CarouselNext className="right-2" />
-              </Carousel>
+                </div>
+              ) : (
+                // Tampilan Carousel untuk Proyek Biasa
+                <Carousel className="w-full">
+                  <CarouselContent>
+                    {galleryImages.map((image, index) => (
+                      <CarouselItem key={index}>
+                        <div className="p-1">
+                          <img
+                            src={image}
+                            alt={`Gallery image ${index + 1}`}
+                            className="w-full h-auto max-h-[400px] object-contain rounded-md"
+                          />
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious className="left-2" />
+                  <CarouselNext className="right-2" />
+                </Carousel>
+              )}
             </div>
           )}
 
@@ -75,8 +93,6 @@ export function CaseStudyModal({ isOpen, onClose, project }: CaseStudyModalProps
             <h3 className="text-xl font-semibold text-charcoal-plum mb-2">Hasil</h3>
             <p className="text-moss-grey">{caseStudy.outcome}</p>
           </div>
-
-          {/* Learnings section removed */}
         </div>
       </DialogContent>
     </Dialog>
