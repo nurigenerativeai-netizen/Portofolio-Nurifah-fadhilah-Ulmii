@@ -27,7 +27,7 @@ const projectsData = [
     id: 2,
     title: "Putri Yang Hilang (Webtoon)",
     description: "Produksi serial webtoon mingguan yang cepat dan efisien menggunakan kombinasi alat AI untuk alur cerita, visual, dan penyuntingan.",
-    tools: ["Canva AI", "Gemini AI", "Chat GPT"],
+    tools: ["Storytelling", "Canva AI", "Chat GPT"], // Diperbarui
     coverImage: "/images/webtoon/1(2).png", // Cover Image
     galleryImages: [
       "/images/webtoon/1(2).png",
@@ -40,7 +40,7 @@ const projectsData = [
       title: "Serial Webtoon: Putri Yang Hilang",
       objective: "Membuat konten serial yang konsisten dan menarik dengan biaya produksi minimal.",
       process: "Menggunakan Gemini AI dan Chat GPT untuk mengelola alur cerita dan dialog. Canva AI digunakan untuk rendering panel dan penyesuaian visual. Proses pasca-produksi minimal untuk penambahan teks.",
-      outcome: "Berhasil meluncurkan 12 episode dalam 3 bulan, meningkatkan engagement audiens sebesar 40%.",
+      outcome: "Berhasil menyelesaikan 5 episode pertama dalam waktu 2 minggu, menunjukkan efisiensi tinggi dalam produksi konten visual berseri.", // Diperbarui
       learnings: "Mempertahankan konsistensi karakter visual antar panel adalah tantangan terbesar, memerlukan teknik 'seed' dan 'controlnet' yang canggih."
     }
   },
