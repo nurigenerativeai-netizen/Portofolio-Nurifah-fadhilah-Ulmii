@@ -6,11 +6,14 @@ import { BookOpen } from "lucide-react";
 interface ProjectCardProps {
   title: string;
   description: string;
-  tools: string[]; // Mengganti 'tags' menjadi 'tools'
-  onViewCaseStudy: () => void; // Mengganti 'link' menjadi 'onViewCaseStudy'
+  tools: string[];
+  onViewCaseStudy: () => void;
 }
 
 export function ProjectCard({ title, description, tools, onViewCaseStudy }: ProjectCardProps) {
+  // Ensure tools is treated as an empty array if null/undefined to prevent map error
+  const safeTools = tools || []; 
+
   return (
     <Card className="bg-white/70 border-dusty-rose/50 hover:shadow-lg transition-all duration-300 group relative overflow-hidden flex flex-col">
       <span className="absolute inset-0 bg-gold-sparkle opacity-0 transition-opacity duration-300 group-hover:opacity-5"></span>
@@ -20,7 +23,7 @@ export function ProjectCard({ title, description, tools, onViewCaseStudy }: Proj
       </CardHeader>
       <CardContent className="pt-0">
         <div className="flex flex-wrap gap-2 mb-4">
-          {tools.map((tool) => (
+          {safeTools.map((tool) => (
             <Badge key={tool} variant="secondary" className="bg-moss-grey/20 text-charcoal-plum hover:bg-moss-grey/30">
               {tool}
             </Badge>
