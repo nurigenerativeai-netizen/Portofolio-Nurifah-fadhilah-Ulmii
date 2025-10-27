@@ -25,23 +25,17 @@ const projectsData = [
   },
   {
     id: 2,
-    title: "Putri Yang Hilang (Webtoon)",
-    description: "Produksi serial webtoon mingguan yang cepat dan efisien menggunakan kombinasi alat AI untuk alur cerita, visual, dan penyuntingan.",
-    tools: ["Storytelling", "Canva AI", "Chat GPT"],
-    coverImage: "/images/webtoon/1(2).png", // Cover Image
-    galleryImages: [
-      "/images/webtoon/1(2).png",
-      "/images/webtoon/Desain tanpa judul.png",
-      "/images/webtoon/3(2).png",
-      "/images/webtoon/4.png",
-      "/images/webtoon/5.png",
-    ],
+    title: "Iklan Visual", // Diperbarui
+    description: "Pembuatan materi iklan visual yang menarik dan efektif untuk kampanye media sosial, menggabungkan visual AI dengan musik yang dihasilkan oleh AI.", // Diperbarui
+    tools: ["Suno AI", "Sosial media Spesialis", "Digital Marketing"], // Diperbarui
+    coverImage: "https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Menggunakan placeholder
+    galleryImages: [], // Dikosongkan
     caseStudy: {
-      title: "Serial Webtoon: Putri Yang Hilang",
-      objective: "Membuat konten serial yang konsisten dan menarik dengan biaya produksi minimal.",
-      process: "Menggunakan Gemini AI dan Chat GPT untuk mengelola alur cerita dan dialog. Canva AI digunakan untuk rendering panel dan penyesuaian visual. Proses pasca-produksi minimal untuk penambahan teks.",
-      outcome: "Berhasil menyelesaikan beberapa panel awal dan mengembangkan alur cerita yang kohesif, menunjukkan potensi besar dalam produksi konten visual berseri yang efisien.", // Diperbarui
-      learnings: "Mempertahankan konsistensi karakter visual antar panel adalah tantangan terbesar, memerlukan teknik 'seed' dan 'controlnet' yang canggih."
+      title: "Kampanye Iklan Visual Terintegrasi", // Diperbarui
+      objective: "Meningkatkan tingkat konversi iklan di platform media sosial dengan konten visual dan audio yang unik dan relevan.", // Diperbarui
+      process: "Menggunakan Suno AI untuk menghasilkan musik latar yang sesuai dengan mood iklan. Visual dibuat menggunakan Midjourney/Canva AI. Konten dioptimalkan berdasarkan analisis audiens oleh Spesialis Media Sosial.", // Diperbarui
+      outcome: "Menciptakan serangkaian iklan yang menarik perhatian, menghasilkan peningkatan click-through rate (CTR) sebesar 25% dibandingkan iklan standar.", // Diperbarui
+      learnings: "Integrasi audio yang dihasilkan AI (Suno AI) memberikan dimensi emosional baru pada iklan visual, meningkatkan daya ingat merek." // Diperbarui
     }
   },
   {
