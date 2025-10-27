@@ -1,15 +1,16 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Tag } from "./Tag";
+import { Button } from "@/components/ui/button";
+import { Tag } from "@/components/Tag";
 import { ArrowUpRight } from "lucide-react";
 
 interface ProjectCardProps {
   title: string;
   description: string;
   tools: string[];
-  link: string;
+  onViewCaseStudy: () => void;
 }
 
-export function ProjectCard({ title, description, tools, link }: ProjectCardProps) {
+export function ProjectCard({ title, description, tools, onViewCaseStudy }: ProjectCardProps) {
   return (
     <Card className="bg-white/70 border-dusty-rose/50 hover:shadow-lg transition-all duration-300 group relative overflow-hidden flex flex-col">
       <span className="absolute inset-0 bg-gold-sparkle opacity-0 transition-opacity duration-300 group-hover:opacity-5"></span>
@@ -23,15 +24,14 @@ export function ProjectCard({ title, description, tools, link }: ProjectCardProp
             <Tag key={index}>{tool}</Tag>
           ))}
         </div>
-        <a
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center text-dusty-rose hover:text-charcoal-plum font-medium transition-colors"
+        <Button
+          variant="link"
+          onClick={onViewCaseStudy}
+          className="p-0 h-auto text-dusty-rose hover:text-charcoal-plum font-medium transition-colors"
         >
           Lihat Detail
           <ArrowUpRight className="w-4 h-4 ml-1" />
-        </a>
+        </Button>
       </CardContent>
     </Card>
   );
