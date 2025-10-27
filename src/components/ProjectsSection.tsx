@@ -5,12 +5,12 @@ import { CaseStudyModal } from "./CaseStudyModal";
 const projectsData = [
   {
     id: 1,
-    title: "Generator Identitas Merek Natural",
-    description: "Menciptakan 100+ logo dan palet warna bertema natural menggunakan model generatif.",
+    title: "Branding Visual",
+    description: "Menciptakan identitas visual merek (logo, palet warna, moodboard) bertema natural menggunakan AI generatif.",
     tools: ["Midjourney", "GPT-4", "Visual Branding"],
     caseStudy: {
-      title: "Generator Identitas Merek Natural",
-      objective: "Mengotomatisasi pembuatan aset branding awal untuk startup yang berfokus pada keberlanjutan.",
+      title: "Branding Visual Merek Natural",
+      objective: "Mengotomatisasi pembuatan aset branding awal untuk startup yang berfokus pada keberlanjutan dengan estetika Earthy Pastel.",
       process: "Menggunakan GPT-4 untuk menghasilkan konsep dan prompt Midjourney yang detail. Melakukan iterasi cepat pada gaya visual dan mengkurasi hasil terbaik. Mengintegrasikan palet warna kustom.",
       outcome: "Pengurangan waktu desain awal sebesar 80% dan menghasilkan identitas visual yang kohesif dan lembut.",
       learnings: "Pentingnya prompt negatif yang spesifik untuk mempertahankan estetika pastel dan menghindari warna jenuh."
