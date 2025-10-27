@@ -1,114 +1,82 @@
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Tag } from "./Tag";
-
-interface CaseStudy {
-  title: string;
-  objective: string;
-  process: string;
-  outcome: string;
-  learnings: string;
-}
-
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  tools: string[];
-  coverImage: string;
-  galleryImages: string[]; // Tambahkan galleryImages
-  caseStudy: CaseStudy;
-}
 
 interface CaseStudyModalProps {
   isOpen: boolean;
   onClose: () => void;
-  project: Project;
+  project: {
+    title: string;
+    tools: string[];
+    galleryImages: string[];
+    caseStudy: {
+      title: string;
+      objective: string;
+      process: string;
+      outcome: string;
+      learnings: string;
+    };
+  };
 }
 
 export function CaseStudyModal({ isOpen, onClose, project }: CaseStudyModalProps) {
-  const { caseStudy, tools, coverImage, galleryImages } = project;
+  const { title, tools, galleryImages, caseStudy } = project;
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[90vw] md:max-w-[800px] lg:max-w-[1000px] max-h-[90vh] overflow-y-auto p-0">
-        {/* Cover Image */}
-        <div className="relative h-64 w-full overflow-hidden">
-          <img
-            src={coverImage}
-            alt={`Cover image for ${project.title}`}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-charcoal-plum/20"></div>
-        </div>
-
-        <div className="p-6">
-          <DialogHeader className="mb-4">
-            <DialogTitle className="text-3xl text-olive-sage">{caseStudy.title}</DialogTitle>
-            <DialogDescription className="text-moss-grey">
-              Studi Kasus: {project.description}
-            </DialogDescription>
-          </DialogHeader>
-
-          <div className="space-y-8">
-            {/* Gallery Section */}
-            {galleryImages && galleryImages.length > 0 && (
-              <div>
-                <h3 className="text-xl font-semibold text-charcoal-plum mb-4 border-b pb-1">Galeri Visual</h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                  {galleryImages.map((image, index) => (
-                    <div key={index} className="aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                      <img
-                        src={image}
-                        alt={`${project.title} visual ${index + 1}`}
-                        className="w-full h-full object-cover cursor-pointer transition-transform duration-300 hover:scale-105"
-                        // Di sini Anda bisa menambahkan fungsionalitas lightbox/zoom jika diperlukan
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Tools/Tags */}
-            <div>
-              <h3 className="text-xl font-semibold text-charcoal-plum mb-2">Alat yang Digunakan</h3>
-              <div className="flex flex-wrap gap-2">
-                {tools.map((tool, index) => (
-                  <Tag key={index}>{tool}</Tag>
-                ))}
-              </div>
-            </div>
-
-            {/* Objective */}
-            <div>
-              <h3 className="text-xl font-semibold text-charcoal-plum mb-2">Tujuan (Objective)</h3>
-              <p className="text-moss-grey">{caseStudy.objective}</p>
-            </div>
-
-            {/* Process */}
-            <div>
-              <h3 className="text-xl font-semibold text-charcoal-plum mb-2">Proses</h3>
-              <p className="text-moss-grey">{caseStudy.process}</p>
-            </div>
-
-            {/* Outcome */}
-            <div>
-              <h3 className="text-xl font-semibold text-charcoal-plum mb-2">Hasil (Outcome)</h3>
-              <p className="text-moss-grey">{caseStudy.outcome}</p>
-            </div>
-
-            {/* Learnings */}
-            <div>
-              <h3 className="text-xl font-semibold text-charcoal-plum mb-2">Pembelajaran</h3>
-              <p className="text-moss-grey">{caseStudy.learnings}</p>
-            </div>
+      <DialogContent className="sm:max-w-[800px] p-0 max-h-[90vh] overflow-y-auto">
+        <DialogHeader className="p-6 pb-0">
+          <DialogTitle className="text-3xl font-bold text-olive-sage">{caseStudy.title}</DialogTitle>
+          <div className="flex flex-wrap gap-2 mt-2">
+            {tools.map((tool, index) => (
+              <Tag key={index}>{tool}</Tag>
+            ))}
           </div>
+        </DialogHeader>
+
+        <div className="p-6 space-y-6">
+          {/* Gallery/Carousel */}
+          {galleryImages && galleryImages.length > 0 && (
+            <div className="bg-dusty-rose/10 p-4 rounded-lg">
+              <Carousel className="w-full">
+                <CarouselContent>
+                  {galleryImages.map((image, index) => (
+                    <CarouselItem key={index}>
+                      <div className="p-1">
+                        <img
+                          src={image}
+                          alt={`Gallery image ${index + 1}`}
+                          className="w-full h-auto max-h-[400px] object-contain rounded-md"
+                        />
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="left-2" />
+                <CarouselNext className="right-2" />
+              </Carousel>
+            </div>
+          )}
+
+          {/* Objective */}
+          <div>
+            <h3 className="text-xl font-semibold text-charcoal-plum mb-2">Tujuan</h3>
+            <p className="text-moss-grey">{caseStudy.objective}</p>
+          </div>
+
+          {/* Process */}
+          <div>
+            <h3 className="text-xl font-semibold text-charcoal-plum mb-2">Proses</h3>
+            <p className="text-moss-grey">{caseStudy.process}</p>
+          </div>
+
+          {/* Outcome */}
+          <div>
+            <h3 className="text-xl font-semibold text-charcoal-plum mb-2">Hasil</h3>
+            <p className="text-moss-grey">{caseStudy.outcome}</p>
+          </div>
+
+          {/* Learnings section removed */}
         </div>
       </DialogContent>
     </Dialog>
