@@ -1,5 +1,4 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Tag } from "@/components/Tag";
 import { ArrowUpRight } from "lucide-react";
 
@@ -13,7 +12,10 @@ interface ProjectCardProps {
 
 export function ProjectCard({ title, description, tools, coverImage, onViewCaseStudy }: ProjectCardProps) {
   return (
-    <Card className="bg-white/70 border-dusty-rose/50 hover:shadow-lg transition-all duration-300 group relative overflow-hidden flex flex-col">
+    <Card 
+      className="bg-white/70 border-dusty-rose/50 hover:shadow-xl transition-all duration-300 group relative overflow-hidden flex flex-col cursor-pointer"
+      onClick={onViewCaseStudy} // Seluruh kartu sekarang dapat diklik
+    >
       {/* Cover Image Section */}
       <div className="relative h-40 overflow-hidden">
         <img
@@ -30,20 +32,14 @@ export function ProjectCard({ title, description, tools, coverImage, onViewCaseS
         <CardTitle className="text-olive-sage">{title}</CardTitle>
         <CardDescription className="text-moss-grey">{description}</CardDescription>
       </CardHeader>
-      <CardContent className="pt-0">
-        <div className="flex flex-wrap gap-2 mb-4">
+      <CardContent className="pt-0 flex justify-between items-center">
+        <div className="flex flex-wrap gap-2">
           {tools.map((tool, index) => (
             <Tag key={index}>{tool}</Tag>
           ))}
         </div>
-        <Button
-          variant="link"
-          onClick={onViewCaseStudy}
-          className="p-0 h-auto text-dusty-rose hover:text-charcoal-plum font-medium transition-colors"
-        >
-          Lihat Detail
-          <ArrowUpRight className="w-4 h-4 ml-1" />
-        </Button>
+        {/* Menambahkan indikator visual bahwa kartu dapat diklik */}
+        <ArrowUpRight className="w-6 h-6 text-dusty-rose group-hover:text-charcoal-plum transition-colors" />
       </CardContent>
     </Card>
   );
