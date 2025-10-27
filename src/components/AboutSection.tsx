@@ -32,7 +32,7 @@ export function AboutSection() {
             <ul className="space-y-3 text-moss-grey">
               <li className="flex items-center">
                 <Sparkles className="w-4 h-4 mr-2 text-gold-sparkle" />
-                Prompt Engineering (Midjourney, Stable Diffusion)
+                Prompt Engineering
               </li>
               <li className="flex items-center">
                 <Sparkles className="w-4 h-4 mr-2 text-gold-sparkle" />
