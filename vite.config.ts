@@ -3,7 +3,8 @@ import dyadComponentTagger from "@dyad-sh/react-vite-component-tagger";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
-export default defineConfig(() => ({
+export default defineConfig(({ mode }) => ({
+  base: mode === 'production' ? '/nama-repo-anda/' : '/', // Ganti '/nama-repo-anda/' dengan nama repositori GitHub Anda
   server: {
     host: "::",
     port: 8080,
