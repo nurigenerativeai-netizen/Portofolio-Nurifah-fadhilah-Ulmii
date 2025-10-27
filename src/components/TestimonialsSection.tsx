@@ -12,17 +12,17 @@ const testimonials = [
   {
     quote: "Nurifah memiliki pemahaman yang luar biasa tentang Prompt Engineering. Hasil AI Art-nya selalu melampaui ekspektasi, dengan sentuhan estetika yang lembut dan profesional.",
     name: "Anya S.",
-    title: "Creative Director, Digital Agency",
+    title: "Direktur Kreatif, Agensi Digital",
   },
   {
     quote: "Kolaborasi dengan Nurifah dalam proyek Komik AI kami sangat mulus. Dia berhasil menjaga konsistensi visual yang kompleks menggunakan Stable Diffusion.",
     name: "Bima P.",
-    title: "Tech Lead, Startup Konten",
+    title: "Pimpinan Teknologi, Startup Konten",
   },
   {
     quote: "Estetika Earthy Pastel yang ia bawa benar-benar unik. Proyek Visual Branding kami terasa hangat, alami, dan modern sekaligus. Sangat direkomendasikan!",
     name: "Citra M.",
-    title: "Founder, Sustainable Fashion Brand",
+    title: "Pendiri, Merek Fashion Berkelanjutan",
   },
 ];
 
@@ -30,7 +30,7 @@ export function TestimonialsSection() {
   return (
     <div className="py-8 animate-fade-in delay-400">
       <h2 className="text-3xl font-bold text-charcoal-plum mb-8 border-b pb-2 border-dusty-rose/50 text-center">
-        What Clients Say
+        Kata Klien
       </h2>
       <Carousel className="w-full max-w-lg mx-auto">
         <CarouselContent>

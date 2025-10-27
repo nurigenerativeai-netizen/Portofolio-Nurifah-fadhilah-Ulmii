@@ -15,20 +15,21 @@ export function AboutSection() {
   return (
     <div className="py-8 animate-fade-in delay-200">
       <h2 className="text-3xl font-bold text-charcoal-plum mb-8 border-b pb-2 border-dusty-rose/50">
-        About Me
+        Tentang Saya
       </h2>
       <div className="flex flex-col md:flex-row items-start gap-8">
         <div className="flex-shrink-0 w-full md:w-1/3 flex flex-col items-center">
           <Avatar className="w-32 h-32 mb-4 border-4 border-dusty-rose shadow-lg">
+            {/* Ganti '/placeholder.svg' dengan path foto Anda */}
             <AvatarImage src="/placeholder.svg" alt="Nurifah Fadhilah Ulmi" />
             <AvatarFallback className="bg-olive-sage text-cream-mist text-2xl">NF</AvatarFallback>
           </Avatar>
           <Button
             className="bg-dusty-rose hover:bg-dusty-rose/90 text-charcoal-plum transition-all duration-300 group relative overflow-hidden w-full"
-            onClick={() => alert("Downloading Resume...")}
+            onClick={() => alert("Mengunduh Resume...")}
           >
             <span className="absolute inset-0 bg-gold-sparkle opacity-0 transition-opacity duration-300 group-hover:opacity-30"></span>
-            <Download className="mr-2 h-4 w-4" /> Download Resume
+            <Download className="mr-2 h-4 w-4" /> Unduh Resume
           </Button>
         </div>
         <div className="md:w-2/3">
@@ -36,7 +37,7 @@ export function AboutSection() {
             Halo! Saya Nurifah, seorang AI Creator yang bersemangat dalam menjembatani seni dan kecerdasan buatan. Dengan latar belakang di bidang desain visual dan keahlian mendalam dalam Prompt Engineering, saya membantu klien mewujudkan ide-ide kreatif yang sebelumnya mustahil. Saya percaya pada estetika yang lembut, natural, dan berdampak.
           </p>
           <h3 className="text-xl font-semibold text-olive-sage mb-3 flex items-center">
-            <Sparkles className="w-5 h-5 mr-2 text-gold-sparkle" /> Core Skills
+            <Sparkles className="w-5 h-5 mr-2 text-gold-sparkle" /> Keahlian Utama
           </h3>
           <div className="flex flex-wrap gap-2">
             {skills.map((skill) => (

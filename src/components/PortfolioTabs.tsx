@@ -9,11 +9,11 @@ import { TestimonialsSection } from "./TestimonialsSection";
 import { ContactSection } from "./ContactSection";
 
 const tabs = [
-  { value: "home", label: "Home", icon: Home, component: HeroSection },
-  { value: "about", label: "About", icon: User, component: AboutSection },
-  { value: "projects", label: "Projects", icon: Briefcase, component: ProjectsSection },
-  { value: "testimonials", label: "Testimonials", icon: MessageSquare, component: TestimonialsSection },
-  { value: "contact", label: "Contact", icon: Mail, component: ContactSection },
+  { value: "home", label: "Beranda", icon: Home, component: HeroSection },
+  { value: "about", label: "Tentang", icon: User, component: AboutSection },
+  { value: "projects", label: "Proyek", icon: Briefcase, component: ProjectsSection },
+  { value: "testimonials", label: "Testimoni", icon: MessageSquare, component: TestimonialsSection },
+  { value: "contact", label: "Kontak", icon: Mail, component: ContactSection },
 ];
 
 export function PortfolioTabs() {
@@ -49,7 +49,7 @@ export function PortfolioTabs() {
         </Tabs>
       </div>
       <div className="mt-4 text-sm text-charcoal-plum/70">
-        Crafted with ✨ and Generative AI
+        Dibuat dengan ✨ dan Generative AI
       </div>
       <MadeWithDyad />
     </div>

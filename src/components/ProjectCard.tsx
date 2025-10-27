@@ -37,7 +37,7 @@ export function ProjectCard({ title, description, tools, onViewCaseStudy }: Proj
           className="text-dusty-rose hover:text-olive-sage transition-colors duration-300 p-0 h-auto"
           onClick={onViewCaseStudy}
         >
-          View Case Study <ArrowUpRight className="ml-1 h-4 w-4" />
+          Lihat Studi Kasus <ArrowUpRight className="ml-1 h-4 w-4" />
         </Button>
       </CardFooter>
     </Card>
