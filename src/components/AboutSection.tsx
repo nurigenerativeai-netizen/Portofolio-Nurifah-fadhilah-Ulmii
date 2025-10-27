@@ -20,7 +20,9 @@ export function AboutSection() {
             Filosofi Kreatif
           </h3>
           <p className="text-moss-grey leading-relaxed mb-6">
-            Saya berfokus pada estetika Earthy Pastel, menciptakan visual yang lembut, organik, dan menenangkan. Setiap proyek adalah upaya untuk menemukan harmoni antara teknologi canggih dan keindahan alam yang abadi.
+            Setiap prompt adalah percakapan dengan masa depan.
+            Melalui satu baris kata, saya tidak hanya memerintah mesin, tetapi menanam benih imajinasi yang tumbuh menjadi bentuk-bentuk baru — visual, ide, dan emosi.
+            Di dunia yang bergerak cepat, Prompt Engineering bukan sekadar keahlian, tapi bahasa kreatif baru yang menjembatani manusia dengan kemungkinan tanpa batas dari kecerdasan buatan
           </p>
         </div>
         <div className="md:w-1/3">
