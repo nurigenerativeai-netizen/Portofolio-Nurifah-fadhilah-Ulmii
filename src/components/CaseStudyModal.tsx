@@ -21,6 +21,7 @@ interface Project {
   description: string;
   tools: string[];
   coverImage: string;
+  galleryImages: string[]; // Tambahkan galleryImages
   caseStudy: CaseStudy;
 }
 
@@ -31,11 +32,11 @@ interface CaseStudyModalProps {
 }
 
 export function CaseStudyModal({ isOpen, onClose, project }: CaseStudyModalProps) {
-  const { caseStudy, tools, coverImage } = project;
+  const { caseStudy, tools, coverImage, galleryImages } = project;
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[800px] max-h-[90vh] overflow-y-auto p-0">
+      <DialogContent className="sm:max-w-[90vw] md:max-w-[800px] lg:max-w-[1000px] max-h-[90vh] overflow-y-auto p-0">
         {/* Cover Image */}
         <div className="relative h-64 w-full overflow-hidden">
           <img
@@ -54,12 +55,34 @@ export function CaseStudyModal({ isOpen, onClose, project }: CaseStudyModalProps
             </DialogDescription>
           </DialogHeader>
 
-          <div className="space-y-6">
+          <div className="space-y-8">
+            {/* Gallery Section */}
+            {galleryImages && galleryImages.length > 0 && (
+              <div>
+                <h3 className="text-xl font-semibold text-charcoal-plum mb-4 border-b pb-1">Galeri Visual</h3>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                  {galleryImages.map((image, index) => (
+                    <div key={index} className="aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                      <img
+                        src={image}
+                        alt={`${project.title} visual ${index + 1}`}
+                        className="w-full h-full object-cover cursor-pointer transition-transform duration-300 hover:scale-105"
+                        // Di sini Anda bisa menambahkan fungsionalitas lightbox/zoom jika diperlukan
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Tools/Tags */}
-            <div className="flex flex-wrap gap-2">
-              {tools.map((tool, index) => (
-                <Tag key={index}>{tool}</Tag>
-              ))}
+            <div>
+              <h3 className="text-xl font-semibold text-charcoal-plum mb-2">Alat yang Digunakan</h3>
+              <div className="flex flex-wrap gap-2">
+                {tools.map((tool, index) => (
+                  <Tag key={index}>{tool}</Tag>
+                ))}
+              </div>
             </div>
 
             {/* Objective */}
