@@ -8,6 +8,7 @@ const projectsData = [
     title: "Branding Visual",
     description: "Menciptakan identitas visual merek (logo, palet warna, moodboard) bertema natural menggunakan AI generatif.",
     tools: ["Midjourney", "GPT-4", "Visual Branding"],
+    coverImage: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     caseStudy: {
       title: "Branding Visual Merek Natural",
       objective: "Mengotomatisasi pembuatan aset branding awal untuk startup yang berfokus pada keberlanjutan dengan estetika Earthy Pastel.",
@@ -21,6 +22,7 @@ const projectsData = [
     title: "Serial Webtoon",
     description: "Produksi serial webtoon mingguan yang cepat dan efisien menggunakan kombinasi alat AI untuk alur cerita, visual, dan penyuntingan.",
     tools: ["Canva AI", "Gemini AI", "Chat GPT"],
+    coverImage: "https://images.unsplash.com/photo-1542435503-921c5831f04e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     caseStudy: {
       title: "Serial Webtoon",
       objective: "Membuat konten serial yang konsisten dan menarik dengan biaya produksi minimal.",
@@ -34,6 +36,7 @@ const projectsData = [
     title: "Pustaka Prompt Kreatif",
     description: "Pengembangan basis data prompt yang terstruktur untuk seniman AI.",
     tools: ["GPT-4", "Prompt Engineering"],
+    coverImage: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     caseStudy: {
       title: "Pustaka Prompt Kreatif",
       objective: "Menciptakan sumber daya yang dapat diskalakan untuk meningkatkan kualitas output AI art.",
@@ -47,6 +50,7 @@ const projectsData = [
     title: "Emulasi Fotografi Fokus Lembut",
     description: "Model AI yang dilatih untuk meniru gaya fotografi film pastel dengan fokus lembut.",
     tools: ["Stable Diffusion", "AI Art"],
+    coverImage: "https://images.unsplash.com/photo-1515879218367-bc8327e2da4e?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     caseStudy: {
       title: "Emulasi Fotografi Fokus Lembut",
       objective: "Menyediakan alat bagi fotografer untuk menambahkan sentuhan vintage dan lembut pada gambar digital.",
@@ -60,6 +64,7 @@ const projectsData = [
     title: "Konten Media Sosial Otomatis",
     description: "Sistem otomatisasi untuk menghasilkan visual dan caption media sosial harian.",
     tools: ["GPT-4", "Creative Automation"],
+    coverImage: "https://images.unsplash.com/photo-1522199755839-d2137f50c658?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     caseStudy: {
       title: "Konten Media Sosial Otomatis",
       objective: "Mempertahankan kehadiran media sosial yang aktif dan visual yang menarik tanpa intervensi manual harian.",
@@ -73,6 +78,7 @@ const projectsData = [
     title: "Generasi Lanskap Ethereal",
     description: "Eksplorasi visual lanskap fantasi dengan nuansa warna Earthy Pastel.",
     tools: ["Midjourney", "AI Art"],
+    coverImage: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     caseStudy: {
       title: "Generasi Lanskap Ethereal",
       objective: "Menciptakan aset latar belakang unik untuk proyek animasi dan game.",
@@ -83,11 +89,27 @@ const projectsData = [
   },
 ];
 
-export function ProjectsSection() {
-  const [selectedCaseStudy, setSelectedCaseStudy] = React.useState<typeof projectsData[0]['caseStudy'] | null>(null);
+// Mendefinisikan tipe data untuk Project
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  tools: string[];
+  coverImage: string;
+  caseStudy: {
+    title: string;
+    objective: string;
+    process: string;
+    outcome: string;
+    learnings: string;
+  };
+}
 
-  const handleViewCaseStudy = (caseStudy: typeof projectsData[0]['caseStudy']) => {
-    setSelectedCaseStudy(caseStudy);
+export function ProjectsSection() {
+  const [selectedProject, setSelectedProject] = React.useState<Project | null>(null);
+
+  const handleViewCaseStudy = (project: Project) => {
+    setSelectedProject(project);
   };
 
   return (
@@ -102,16 +124,17 @@ export function ProjectsSection() {
             title={project.title}
             description={project.description}
             tools={project.tools}
-            onViewCaseStudy={() => handleViewCaseStudy(project.caseStudy)}
+            coverImage={project.coverImage}
+            onViewCaseStudy={() => handleViewCaseStudy(project)}
           />
         ))}
       </div>
 
-      {selectedCaseStudy && (
+      {selectedProject && (
         <CaseStudyModal
-          isOpen={!!selectedCaseStudy}
-          onClose={() => setSelectedCaseStudy(null)}
-          caseStudy={selectedCaseStudy}
+          isOpen={!!selectedProject}
+          onClose={() => setSelectedProject(null)}
+          project={selectedProject} // Meneruskan seluruh objek project
         />
       )}
     </div>

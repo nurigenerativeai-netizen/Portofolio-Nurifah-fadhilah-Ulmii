@@ -1,11 +1,11 @@
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
+  DialogDescription,
 } from "@/components/ui/dialog";
-import { Separator } from "@/components/ui/separator";
+import { Tag } from "./Tag";
 
 interface CaseStudy {
   title: string;
@@ -15,45 +15,76 @@ interface CaseStudy {
   learnings: string;
 }
 
-interface CaseStudyModalProps {
-  isOpen: boolean;
-  onClose: () => void;
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  tools: string[];
+  coverImage: string;
   caseStudy: CaseStudy;
 }
 
-export function CaseStudyModal({ isOpen, onClose, caseStudy }: CaseStudyModalProps) {
+interface CaseStudyModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  project: Project;
+}
+
+export function CaseStudyModal({ isOpen, onClose, project }: CaseStudyModalProps) {
+  const { caseStudy, tools, coverImage } = project;
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[600px] bg-cream-mist/95 backdrop-blur-md text-charcoal-plum">
-        <DialogHeader>
-          <DialogTitle className="text-3xl text-olive-sage">{caseStudy.title}</DialogTitle>
-          <DialogDescription className="text-moss-grey">
-            Tinjauan mendalam tentang pelaksanaan dan hasil proyek.
-          </DialogDescription>
-        </DialogHeader>
-        <div className="space-y-6 py-4 max-h-[70vh] overflow-y-auto pr-4">
-          
-          <div>
-            <h3 className="font-bold text-dusty-rose mb-1">Tujuan (Objective)</h3>
-            <p className="text-sm">{caseStudy.objective}</p>
-          </div>
-          <Separator className="bg-moss-grey/30" />
-          
-          <div>
-            <h3 className="font-bold text-dusty-rose mb-1">Proses (Process)</h3>
-            <p className="text-sm whitespace-pre-line">{caseStudy.process}</p>
-          </div>
-          <Separator className="bg-moss-grey/30" />
+      <DialogContent className="sm:max-w-[800px] max-h-[90vh] overflow-y-auto p-0">
+        {/* Cover Image */}
+        <div className="relative h-64 w-full overflow-hidden">
+          <img
+            src={coverImage}
+            alt={`Cover image for ${project.title}`}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-charcoal-plum/20"></div>
+        </div>
 
-          <div>
-            <h3 className="font-bold text-dusty-rose mb-1">Hasil (Outcome)</h3>
-            <p className="text-sm">{caseStudy.outcome}</p>
-          </div>
-          <Separator className="bg-moss-grey/30" />
+        <div className="p-6">
+          <DialogHeader className="mb-4">
+            <DialogTitle className="text-3xl text-olive-sage">{caseStudy.title}</DialogTitle>
+            <DialogDescription className="text-moss-grey">
+              Studi Kasus: {project.description}
+            </DialogDescription>
+          </DialogHeader>
 
-          <div>
-            <h3 className="font-bold text-dusty-rose mb-1">Pembelajaran (Learnings)</h3>
-            <p className="text-sm">{caseStudy.learnings}</p>
+          <div className="space-y-6">
+            {/* Tools/Tags */}
+            <div className="flex flex-wrap gap-2">
+              {tools.map((tool, index) => (
+                <Tag key={index}>{tool}</Tag>
+              ))}
+            </div>
+
+            {/* Objective */}
+            <div>
+              <h3 className="text-xl font-semibold text-charcoal-plum mb-2">Tujuan (Objective)</h3>
+              <p className="text-moss-grey">{caseStudy.objective}</p>
+            </div>
+
+            {/* Process */}
+            <div>
+              <h3 className="text-xl font-semibold text-charcoal-plum mb-2">Proses</h3>
+              <p className="text-moss-grey">{caseStudy.process}</p>
+            </div>
+
+            {/* Outcome */}
+            <div>
+              <h3 className="text-xl font-semibold text-charcoal-plum mb-2">Hasil (Outcome)</h3>
+              <p className="text-moss-grey">{caseStudy.outcome}</p>
+            </div>
+
+            {/* Learnings */}
+            <div>
+              <h3 className="text-xl font-semibold text-charcoal-plum mb-2">Pembelajaran</h3>
+              <p className="text-moss-grey">{caseStudy.learnings}</p>
+            </div>
           </div>
         </div>
       </DialogContent>
