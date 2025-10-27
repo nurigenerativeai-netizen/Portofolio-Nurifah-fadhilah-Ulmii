@@ -9,11 +9,11 @@ export function AboutSection() {
       <div className="flex flex-col md:flex-row gap-8">
         <div className="md:w-2/3">
           <p className="text-moss-grey leading-relaxed mb-6">
-            Halo, aku Nurifah Fadhilah Ulmi — seorang AI Creator & Prompt Engineer yang menjadikan kecerdasan buatan sebagai ruang eksplorasi tanpa batas.
-            Bagiku, AI bukan sekadar alat, tapi media kreatif masa depan yang membuka jalan baru bagi imajinasi dan ekspresi visual.
+            Halo, Saya Nurifah Fadhilah Ulmi — seorang AI Creator & Prompt Engineer yang menjadikan kecerdasan buatan sebagai ruang eksplorasi tanpa batas.
+            Bagi Saya, AI bukan sekadar alat, tapi media kreatif masa depan yang membuka jalan baru bagi imajinasi dan ekspresi visual.
             <br /><br />
-            Dengan perpaduan seni visual, logika, dan teknologi, aku mengeksplor cara baru menciptakan ide — dari visual eksperimental, desain konseptual, hingga karya yang memadukan emosi manusia dengan kecerdasan mesin.
-            Aku percaya, masa depan kreatif lahir dari keberanian untuk terus bereksperimen, beradaptasi, dan bermimpi lebih jauh dari yang terlihat. 🌿✨
+            Dengan perpaduan seni visual, logika, dan teknologi, Saya mengeksplor cara baru menciptakan ide — dari visual eksperimental, desain konseptual, hingga karya yang memadukan emosi manusia dengan kecerdasan mesin.
+            Saya percaya, masa depan kreatif lahir dari keberanian untuk terus bereksperimen, beradaptasi, dan bermimpi lebih jauh dari yang terlihat. 🌿✨
           </p>
           <h3 className="text-xl font-semibold text-olive-sage mb-3 flex items-center">
             <Leaf className="w-5 h-5 mr-2 text-dusty-rose" />
@@ -21,7 +21,7 @@ export function AboutSection() {
           </h3>
           <p className="text-moss-grey leading-relaxed mb-6">
             Setiap prompt adalah percakapan dengan masa depan.
-            Melalui satu baris kata, saya tidak hanya memerintah mesin, tetapi menanam benih imajinasi yang tumbuh menjadi bentuk-bentuk baru — visual, ide, dan emosi.
+            Melalui satu baris kata, Saya tidak hanya memerintah mesin, tetapi menanam benih imajinasi yang tumbuh menjadi bentuk-bentuk baru — visual, ide, dan emosi.
             Di dunia yang bergerak cepat, Prompt Engineering bukan sekadar keahlian, tapi bahasa kreatif baru yang menjembatani manusia dengan kemungkinan tanpa batas dari kecerdasan buatan
           </p>
         </div>
