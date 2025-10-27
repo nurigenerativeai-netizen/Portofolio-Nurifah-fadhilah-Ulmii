@@ -7,8 +7,8 @@ export function HeroSection() {
     <div className="py-12 text-center animate-fade-in delay-100">
       <div className="flex flex-col items-center mb-8">
         <Avatar className="w-32 h-32 mb-4 border-4 border-gold-sparkle shadow-xl">
-          {/* Ganti '/placeholder-hero.jpg' dengan path foto Anda */}
-          <AvatarImage src="/placeholder-hero.jpg" alt="Nurifah Fadhilah Ulmi" />
+          {/* Ganti '/placeholder.svg' dengan path foto Anda */}
+          <AvatarImage src="/placeholder.svg" alt="Nurifah Fadhilah Ulmi" />
           <AvatarFallback className="bg-olive-sage text-cream-mist text-2xl">NF</AvatarFallback>
         </Avatar>
         <p className="text-xl text-dusty-rose font-semibold mb-1">
