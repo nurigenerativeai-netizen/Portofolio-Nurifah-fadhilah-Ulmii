@@ -18,13 +18,13 @@ const projectsData = [
   },
   {
     id: 2,
-    title: "Serial Komik AI Otomatis",
-    description: "Produksi serial komik mingguan dengan alur cerita dan visual yang dihasilkan AI.",
-    tools: ["Stable Diffusion", "LangChain", "Komik AI"],
+    title: "Serial Webtoon",
+    description: "Produksi serial webtoon mingguan yang cepat dan efisien menggunakan kombinasi alat AI untuk alur cerita, visual, dan penyuntingan.",
+    tools: ["Canva AI", "Gemini AI", "Chat GPT"],
     caseStudy: {
-      title: "Serial Komik AI Otomatis",
+      title: "Serial Webtoon",
       objective: "Membuat konten serial yang konsisten dan menarik dengan biaya produksi minimal.",
-      process: "Menggunakan LangChain untuk mengelola alur cerita dan konsistensi karakter. Stable Diffusion digunakan untuk rendering panel komik. Proses pasca-produksi minimal untuk penambahan teks.",
+      process: "Menggunakan Gemini AI dan Chat GPT untuk mengelola alur cerita dan dialog. Canva AI digunakan untuk rendering panel dan penyesuaian visual. Proses pasca-produksi minimal untuk penambahan teks.",
       outcome: "Berhasil meluncurkan 12 episode dalam 3 bulan, meningkatkan engagement audiens sebesar 40%.",
       learnings: "Mempertahankan konsistensi karakter visual antar panel adalah tantangan terbesar, memerlukan teknik 'seed' dan 'controlnet' yang canggih."
     }
