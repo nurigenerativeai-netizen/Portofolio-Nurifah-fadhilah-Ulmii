@@ -2,17 +2,14 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Send, Mail, Github, Instagram, MessageCircle, Zap } from "lucide-react";
-
-const socialLinks = [
-  { icon: MessageCircle, label: "WhatsApp", href: "#", color: "text-green-600" },
-  { icon: Instagram, label: "Instagram", href: "#", color: "text-pink-600" },
-  { icon: Mail, label: "Email", href: "#", color: "text-red-600" },
-  { icon: Github, label: "GitHub", href: "#", color: "text-charcoal-plum" },
-  { icon: Zap, label: "Hugging Face", href: "#", color: "text-yellow-600" },
-];
+import { Send } from "lucide-react";
+import { useSocialLinks } from "@/hooks/use-social-links";
+import { getIconComponent } from "@/utils/icon-map";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export function ContactSection() {
+  const { data: socialLinks, isLoading: isLoadingLinks, isError: isErrorLinks } = useSocialLinks();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     alert("Pesan terkirim! (Fungsionalitas form perlu diimplementasikan di backend)");
@@ -54,19 +51,32 @@ export function ContactSection() {
             Jangan ragu untuk menghubungi saya melalui platform berikut.
           </p>
           <div className="space-y-3">
-            {socialLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center p-3 rounded-lg bg-moss-grey/10 hover:bg-moss-grey/20 transition-all duration-300 group relative overflow-hidden"
-              >
-                <span className="absolute inset-0 bg-gold-sparkle opacity-0 transition-opacity duration-300 group-hover:opacity-10"></span>
-                <link.icon className={`w-5 h-5 mr-3 ${link.color}`} />
-                <span className="text-charcoal-plum font-medium">{link.label}</span>
-              </a>
-            ))}
+            {isLoadingLinks ? (
+              <>
+                <Skeleton className="h-10 w-full bg-moss-grey/10" />
+                <Skeleton className="h-10 w-full bg-moss-grey/10" />
+                <Skeleton className="h-10 w-full bg-moss-grey/10" />
+              </>
+            ) : isErrorLinks || !socialLinks ? (
+              <p className="text-destructive">Gagal memuat tautan sosial.</p>
+            ) : (
+              socialLinks.map((link) => {
+                const IconComponent = getIconComponent(link.icon_name);
+                return (
+                  <a
+                    key={link.id}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center p-3 rounded-lg bg-moss-grey/10 hover:bg-moss-grey/20 transition-all duration-300 group relative overflow-hidden"
+                  >
+                    <span className="absolute inset-0 bg-gold-sparkle opacity-0 transition-opacity duration-300 group-hover:opacity-10"></span>
+                    {IconComponent && <IconComponent className={`w-5 h-5 mr-3 ${link.color_class}`} />}
+                    <span className="text-charcoal-plum font-medium">{link.label}</span>
+                  </a>
+                );
+              })
+            )}
           </div>
         </div>
       </div>
